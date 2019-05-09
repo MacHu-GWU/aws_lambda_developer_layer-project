@@ -1,0 +1,28 @@
+# Coverage.py is a tool for measuring code coverage of Python programs.
+# for more info: https://coverage.readthedocs.io/en/latest/config.html
+[run]
+omit =
+    aws_layer_all_in_one/_version.py
+    aws_layer_all_in_one/cli.py
+    aws_layer_all_in_one/pkg/*
+    aws_layer_all_in_one/docs/*
+    aws_layer_all_in_one/tests/*
+    aws_layer_all_in_one/handlers/*
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain about missing debug-only code:
+    def __repr__
+    if self\.debug
+
+    # Don't complain if tests don't hit defensive assertion code:
+    raise AssertionError
+    raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if __name__ == .__main__.:
